@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>intervals</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item color="dark" >
+        <ion-label>
+          Test total time
+        </ion-label>
+        <ion-datetime class="datetime" displayFormat="mm:ss" placeholder="Tap here" [(ngModel)]="fulltime"></ion-datetime>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label>
+          Add interval
+        </ion-label>
+        <ion-fab horizontal="end">
+          <ion-fab-button (click)="startProgress()" color="danger" class="fab-add">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-item>
+      <ion-list >
+        <ion-item color="dark">
+          <ion-label>
+              1 interval
+          </ion-label>
+          <ion-datetime class="datetime" displayFormat="mm:ss" max="00:02:00" placeholder="Tap here" [(ngModel)]="fulltime"></ion-datetime>
+        </ion-item>
+      </ion-list>
+
+</ion-content>

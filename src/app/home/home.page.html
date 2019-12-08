@@ -1,0 +1,61 @@
+<!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>Time Your Test</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+<ion-content>
+    <ion-item color="dark" [routerLink]="['/intervals']">
+        <ion-label >
+          Test total time
+        </ion-label>
+        <ion-datetime class="datetime" displayFormat="mm:ss" placeholder="Tap here" [(ngModel)]="fulltime"></ion-datetime>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label>
+          Add interval
+        </ion-label>
+        <ion-fab horizontal="end">
+          <ion-fab-button (click)="startProgress()" color="danger" class="fab-add">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-item>
+      <ion-list >
+        <ion-item color="dark">
+          <ion-label>
+              1 interval
+          </ion-label>
+          <ion-datetime class="datetime" displayFormat="mm:ss" max="00:02:00" placeholder="Tap here" [(ngModel)]="fulltime"></ion-datetime>
+        </ion-item>
+      </ion-list>
+  <circle-progress (click)="startProgress()"
+    [percent]="percent"
+    [radius]="100"
+    [showTitle]="false"
+    [showSubtitle]="false"
+    [showUnits]="false"
+    [showZeroOuterStroke]="false"
+    [backgroundStroke]="'#30303F'"
+    [backgroundStrokeWidth]="3"
+    [outerStrokeWidth]="10"
+    [outerStrokeColor]="'#8000FF'"
+    [outerStrokeGradient]="true"
+    [outerStrokeGradientStopColor]="'#FF00CB'"
+    [showInnerStroke]="false"
+  ></circle-progress>
+
+  <p>{{ elapsed.h}}:{{ elapsed.m}}:{{ elapsed.s}}</p>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ng-container *ngIf="timer == false; else running">
+      <ion-fab-button (click)="startProgress()">
+        <ion-icon name="play"></ion-icon>
+      </ion-fab-button>
+    </ng-container>
+    <ng-template #running>
+      <ion-fab-button (click)="stopProgress()">
+        <ion-icon name="square"></ion-icon>
+      </ion-fab-button>
+    </ng-template>
+
+  </ion-fab>
+</ion-content>
